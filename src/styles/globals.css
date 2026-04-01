@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+}
+
+@layer components {
+  /* Prose overrides for dark mode and table overflow */
+  .doc-content .prose {
+    @apply max-w-none;
+  }
+
+  .doc-content .prose table {
+    @apply block overflow-x-auto whitespace-nowrap;
+  }
+
+  .doc-content .prose thead th {
+    @apply bg-gray-50 dark:bg-gray-800/50;
+  }
+
+  .doc-content .prose tbody tr {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  .doc-content .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .doc-content .prose pre code {
+    @apply bg-transparent px-0 py-0;
+  }
+
+  .doc-content .prose pre {
+    @apply bg-gray-900 dark:bg-gray-950 border border-gray-200 dark:border-gray-800;
+  }
+
+  .doc-content .prose a {
+    @apply text-primary-600 dark:text-primary-400 no-underline hover:underline;
+  }
+
+  .doc-content .prose h2 {
+    @apply scroll-mt-20 border-b border-gray-200 dark:border-gray-800 pb-2;
+  }
+
+  .doc-content .prose h3 {
+    @apply scroll-mt-20;
+  }
+
+  .doc-content .prose blockquote {
+    @apply border-primary-500 bg-primary-50 dark:bg-primary-950/20 px-4 not-italic;
+  }
+
+  .doc-content .prose .diagram {
+    @apply my-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900;
+  }
+
+  .doc-content .prose .diagram__header {
+    @apply border-b border-gray-200 bg-gray-50 px-5 py-3 text-sm font-semibold text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-100;
+  }
+
+  .doc-content .prose .diagram__body {
+    @apply space-y-4 p-5;
+  }
+
+  .doc-content .prose .diagram__caption {
+    @apply m-0 text-sm text-gray-600 dark:text-gray-400;
+  }
+
+  .doc-content .prose .diagram-grid {
+    @apply grid gap-3 md:grid-cols-2;
+  }
+
+  .doc-content .prose .diagram-grid--3 {
+    @apply grid gap-3 lg:grid-cols-3;
+  }
+
+  .doc-content .prose .diagram-stack {
+    @apply flex flex-col gap-3;
+  }
+
+  .doc-content .prose .diagram-flow {
+    @apply flex flex-col gap-3 lg:flex-row lg:items-stretch;
+  }
+
+  .doc-content .prose .diagram-flow__step {
+    @apply min-w-0 flex-1 rounded-xl border border-primary-200 bg-primary-50 p-4 dark:border-primary-900 dark:bg-primary-950/30;
+  }
+
+  .doc-content .prose .diagram-flow__arrow {
+    @apply self-center text-lg font-semibold text-primary-500;
+  }
+
+  .doc-content .prose .diagram-card {
+    @apply min-w-0 rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-950/60;
+  }
+
+  .doc-content .prose .diagram-card--accent {
+    @apply border-primary-300 bg-primary-50 dark:border-primary-800 dark:bg-primary-950/30;
+  }
+
+  .doc-content .prose .diagram-card__title {
+    @apply m-0 text-base font-semibold text-gray-900 dark:text-gray-100;
+  }
+
+  .doc-content .prose .diagram-card__meta {
+    @apply mt-1 text-sm text-gray-600 dark:text-gray-400;
+  }
+
+  .doc-content .prose .diagram-card__list {
+    @apply mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300;
+  }
+
+  .doc-content .prose .diagram-chip-row {
+    @apply mt-3 flex flex-wrap gap-2;
+  }
+
+  .doc-content .prose .diagram-chip {
+    @apply inline-flex items-center rounded-full border border-gray-300 bg-white px-3 py-1 text-xs font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300;
+  }
+
+  .doc-content .prose .diagram-note {
+    @apply rounded-xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-600 dark:border-gray-700 dark:bg-gray-950/40 dark:text-gray-400;
+  }
+
+  .doc-content .prose .diagram-layers {
+    @apply space-y-3;
+  }
+
+  .doc-content .prose .diagram-layer {
+    @apply rounded-xl border border-gray-200 px-4 py-3 dark:border-gray-700;
+  }
+
+  .doc-content .prose .diagram-layer--surface {
+    @apply bg-blue-50 dark:bg-blue-950/20;
+  }
+
+  .doc-content .prose .diagram-layer--core {
+    @apply bg-emerald-50 dark:bg-emerald-950/20;
+  }
+
+  .doc-content .prose .diagram-layer--governance {
+    @apply bg-amber-50 dark:bg-amber-950/20;
+  }
+
+  .doc-content .prose .diagram-layer--state {
+    @apply bg-rose-50 dark:bg-rose-950/20;
+  }
+
+  .doc-content .prose .diagram-layer__title {
+    @apply m-0 text-sm font-semibold text-gray-900 dark:text-gray-100;
+  }
+
+  .doc-content .prose .diagram-layer__text {
+    @apply mt-1 text-sm text-gray-700 dark:text-gray-300;
+  }
+
+  .doc-content .prose .diagram-sequence {
+    @apply grid gap-3 lg:grid-cols-4;
+  }
+
+  .doc-content .prose .diagram-sequence__lane {
+    @apply rounded-xl border border-gray-200 dark:border-gray-700;
+  }
+
+  .doc-content .prose .diagram-sequence__title {
+    @apply m-0 border-b border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100;
+  }
+
+  .doc-content .prose .diagram-sequence__body {
+    @apply space-y-3 p-4 text-sm text-gray-700 dark:text-gray-300;
+  }
+
+  /* Sidebar active link */
+  .sidebar-link-active {
+    @apply bg-primary-50 dark:bg-primary-950/30 text-primary-700 dark:text-primary-300 border-r-2 border-primary-500;
+  }
+}

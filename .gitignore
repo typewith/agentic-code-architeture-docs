@@ -1,0 +1,6 @@
+# Agent-generated local state
+.claude/
+.codex/
+node_modules/
+dist/
+*.tsbuildinfo
